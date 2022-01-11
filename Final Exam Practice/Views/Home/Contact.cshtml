@@ -1,0 +1,55 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@using Final_Exam_Practice.Models
+@model List<Student>
+
+<form method="post" action="/home/contact">
+    <h1> @ViewData["message"]</h1>
+    <br />
+    <label class="form-text"> PRODUCT NAME </label>
+    <input type="text" name="Name" class="form-control" placeholder="ENTER PRODUCT HERE" />
+
+
+    <label class="form-text">PRODUCT QUANTITY</label>
+    <input type="number" name="Quantity" class="form-control" placeholder="1-10,000" />
+
+    <br />
+    <label class="form-text">PRICE $$$</label>
+    <input type="number" name="Price" placeholder="100 RS">
+    <br />
+    <br />
+    <label class="form-text">Description</label>
+    <textarea name="message" rows="5" class="form-control" placeholder="DESCRIPTION.........."></textarea>
+    <br />
+    <br />
+    <input class="btn btn-primary" type="submit" value="ENTER DATA" />
+    <br />
+    <br />
+</form>
+
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Description</th>
+     
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Quantity</td>
+            <td>@item.Price</td>
+            <td>@item.message</td>
+            
+
+        </tr>
+    }
+</table>
